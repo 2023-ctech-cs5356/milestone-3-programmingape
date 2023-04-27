@@ -103,3 +103,11 @@ If you wind up deploying to a different hosting platform, you should still be ab
 
 ### 第三步：debug，完善和部署
 
+
+### 学习
+虚拟环境
+python3 -m venv venv
+source venv/bin/activate
+
+下载环境
+pip install Flask requests Flask-SQLAlchemy flask-cors
