@@ -32,11 +32,17 @@ def ask_question():
 @app.route('/api/create-team', methods=['POST'])
 def create_team():
     team_data = request.get_json()
-    # Process team_data and save it to the MySQL database
-    # Return a JSON response with a success message and the team ID
-    team_id = 1
+    name = team_data['name']
+    description = team_data['description']
+    members = team_data['members']
+    user_id = team_data['user_id']
+    print("----------------enter_team-----------------")
+    print(name + " " + description + " " + str(user_id) + " " + str(members))
+    new_team = Team(name=name, description=description, members=members, user_id=user_id)
+    db.session.add(new_team)
+    db.session.commit()
 
-    return jsonify({"message": "Team created successfully", "team_id": team_id})
+    return jsonify({"message": "Team created successfully", "team_id": id})
 
 
 @app.route('/logout', methods=['POST'])
@@ -125,7 +131,8 @@ def get_teams():
         print("team_name: " + str(team.name))
         team_data.append({
             'name': team.name,
-            'description': team.description
+            'description': team.description,
+            'members': team.members,
         })
     
     return jsonify({'teams': team_data}), 201
