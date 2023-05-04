@@ -11,6 +11,7 @@ class Team(db.Model):
     description = db.Column(db.String(10000))
     # Right for list.
     members = db.Column(JSON)
+    history = db.Column(JSON)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
 class User(db.Model, UserMixin):
