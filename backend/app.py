@@ -58,6 +58,7 @@ def get_teams():
     for team in teams:
         print("team_name: " + str(team.name))
         team_data.append({
+            'id': team.id,
             'name': team.name,
             'description': team.description,
             'members': team.members,
