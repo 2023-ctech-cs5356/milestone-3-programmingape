@@ -1,0 +1,7 @@
+openai
+promptlayer
+python-dotenv
+flask
+flask-sqlalchemy 
+requests 
+flask-cors
